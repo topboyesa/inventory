@@ -1,0 +1,6 @@
+requirements gathering- I was called by a client, My Cousin Morgan Otieno he wanted an app to help manage his textile business. It should keep records of customers, stock, and suppliers. It should run on a computer. (I could make it run on a mobile phone too if he liked it - if i made it using javafx.)
+Design - I reviw some existing inventory software. They are all very basic - plain black and white. They are made using either Python or Java, both of which I am very familiar with.
+Development -  I write the basic structure of the app in Python. I speed it up with Claude to create an interface/windows using Tkinter and the database in sqlite and create a downloadable backup folder for storing data and backing up to the cloud. I test the working version to my satisfaction.
+Deployment - I send it to my client to review it and test it.
+Styling - I make it look better then upload the final downloadable version on Microsoft Store.
+Maintenance - Periodic updates from time to time to keep up with changes and improvements in technology.
