@@ -19,6 +19,7 @@ import shutil
 import smtplib
 import socket
 import sqlite3
+import sys
 import threading
 import time
 import traceback
@@ -358,7 +359,7 @@ class LoginPage(ttk.Frame):
             ttk.Button(box, text="Login", command=self.login).pack(fill="x", pady=(10, 2))
             ttk.Button(box, text="Login with Google", command=lambda: messagebox.showinfo(
                 "Coming soon", "Google sign-in needs an OAuth client; see notes.")).pack(fill="x", pady=2)
-            ttk.Label(box, text="Forgot your password? Run:  python inventory_app.py --recover",
+            ttk.Label(box, text="Forgot your password? Run ModernInventory-Recover.exe\n(or: python inventory_app.py --recover)",
                       foreground="gray").pack(pady=(10, 0))
         ttk.Label(box, text=f"v{APP_VERSION}", foreground="gray").pack(pady=(8, 0))
 
@@ -858,7 +859,8 @@ if __name__ == "__main__":
     ap.add_argument("--recover", action="store_true", help="reset a forgotten password from the terminal")
     args = ap.parse_args()
     init_db()
-    if args.recover:
-        recover()
+    if args.recover or "recover" in Path(sys.argv[0]).stem.lower():
+        recover()                                       # also runs when the exe is named ...-Recover
+        input("\nPress Enter to close...")
     else:
         App().mainloop()
